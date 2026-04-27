@@ -1,0 +1,619 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* NAVBAR  */
+.navbar {
+    width: 100%;
+    height: 8vh;
+    background: whitesmoke;
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    font-size: 4vh;
+    margin-left: auto;
+
+}
+
+@media (max-width: 1410px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .menu-div {
+        width: 65vw;
+    }
+
+    .menu-toggle {
+        display: block;
+
+    }
+
+    .buttons-container {
+        display: none;
+        flex-direction: column;
+        width: 97%;
+    }
+
+    .imageCard {
+        min-width: 94.5vw;
+        min-height: 20vh;
+    }
+
+    .imgButton {
+        min-width: 94vw;
+
+    }
+}
+
+@media (max-width: 600px) {
+    .buttons-container[style*="display: flex"] {
+        display: flex !important;
+    }
+
+    .navbar-button {
+        width: 100%;
+    }
+}
+
+/* end of navbar */
+
+dialog {
+    background-color: rgba(0, 0, 0, 0.514);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+}
+
+.loginModal {
+    width: 50vh;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: whitesmoke;
+    overflow-y: scroll;
+}
+
+#container {
+    width: 100%;
+    height: 90vh;
+    background-color: black;
+}
+
+.msgQuestion {
+    background-image: url("./images/snapAdmin.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vh;
+    background-position: top;
+    height: 100%;
+    width: 20%;
+}
+
+.msgQuestionAdmin {
+    background-image: url("./images/snapAdmin.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vh;
+    background-position: top;
+    height: 100%;
+    width: 20%;
+}
+
+
+
+.question {
+    background-image: url("./images/questionMark.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.snapQuest {
+    background-image: url("./images/snapQuestion.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.favicon {
+    background-image: url("./images/questionMark.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.msgButton {
+    background: goldenRod;
+    padding: 1vh 2vw;
+    color: black;
+    font-size: larger;
+    border: none;
+    border-radius: 8px;
+    /* Optional for rounded corners */
+    cursor: pointer;
+}
+
+.msgButton:hover {
+    background-color: red;
+}
+
+.responsive-container {
+    width: 100vw;
+    height: 38vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url(./images/snapAdmin.jpg);
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.logo-div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40vw;
+    min-width: 200px;
+    min-height: 200px;
+    /* image aspect ratio */
+}
+
+.text-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 428px) { 
+    #snapback {
+        border: none !important;
+    }
+}
+
+@media (max-width: 648px) {
+    .responsive-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 55vh;
+    }
+
+    .Modo {
+        width: 90%;
+    }
+
+    .logo-div {
+        width: 100vw;
+        min-width: 0;
+        min-height: 150px;
+    }
+
+    .text-section {
+        width: 100vw;
+        margin-top: 10px;
+    }
+
+    .cardResponding {
+        width: 98% !important;
+        max-height: fit-content !important;
+        background-color: antiquewhite;
+        display: flex;
+        flex-direction: column;
+        margin: 2vh 0;
+    }
+
+    .cardRespondingTextImage {
+        max-width: 100% !important;
+    }
+
+    .cardRespondingText {
+        height: fit-content !important;
+    }
+
+    .cardRespondingTextDate {
+        font-size: small;
+    }
+
+}
+
+.msgQuestion {
+    background-image: url("./images/snapAdmin.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vh;
+    background-position: top;
+    height: 100%;
+    width: 20%;
+  }
+  
+  @media (max-width: 760px) {
+    .responsiveContent {
+      display: flex !important;
+      flex-direction: column !important;
+      height: auto !important;
+      width: 100vw !important;
+      overflow-y: auto !important;
+    }
+  
+    .msgQuestion {
+      width: 100% !important;
+      height: auto !important;
+      padding: 0 !important;
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: none; /* move the image to the inner div */
+    }
+  
+    .msgQuestionImage {
+      width: 100% !important;
+      height: 250px !important;
+      background-image: url("./images/snapAdmin.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  
+    .msgQuestion h1 {
+      width: 100% !important;
+      height: auto !important;
+      margin: 1rem 0 !important;
+      display: block !important;
+      text-align: center !important;
+      align-items: unset !important;
+    }
+  
+    .messageForm {
+      width: 100% !important;
+      max-width: 100% !important;
+      order: 2;
+      align-items: center;
+    }
+  
+    .messageForm input {
+      width: 90% !important;
+    }
+  
+    .messageForm textarea {
+      width: 90% !important;
+    }
+  
+    .messageForm button {
+      width: 90% !important;
+    }
+  }
+  
+  @media (max-width: 760px) {
+    .faqResponsive {
+      flex-direction: column !important;
+      height: auto !important;
+      width: 100vw !important;
+      align-items: stretch !important;
+      overflow-y: auto !important;
+    }
+  
+    .faqSidePanel {
+      width: 100% !important;
+      height: auto !important;
+      padding: 2vh 4vw !important;
+      align-items: center;
+      order: 1;
+    }
+  
+    .faqMainPanel {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 60vh;
+      order: 2;
+      overflow-y: visible !important;
+      align-items: center;
+    }
+  
+    .faqSidePanel .question,
+    .faqSidePanel .snapQuest {
+      width: 100% !important;
+      max-width: 400px;
+      height: 220px !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  
+    .faqSidePanel h4 {
+      margin-top: 1rem;
+      text-align: center;
+    }
+  
+    .faqMainPanel > h1 {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+  
+    .faqMainPanel .card {
+      width: 95% !important;
+    }
+  }
+  
+  
+  
+
+@media (max-width: 760px) {
+
+    .text-section {
+        width: 100vw;
+        margin-top: 10px;
+    }
+
+    .cardResponding {
+        width: 90vw !important;
+        max-height: fit-content !important;
+        background-color: antiquewhite;
+        display: flex;
+        margin: 2vh 0;
+    }
+
+    .cardRespondingTextImage {
+        max-width: 30%;
+        max-height: 20vh;
+    }
+
+    .cardRespondingText {
+        height: 17vh !important;
+    }
+
+    .cardRespondingTextDate {
+        font-size: small;
+    }
+
+}
+
+
+.cardResponse {
+    width: 90vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+
+.cardResponding {
+    width: 80vw;
+    max-height: 50vh;
+    background-color: antiquewhite;
+    display: flex;
+    margin: 2vh 0;
+}
+
+.spin {
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    color: gold !important;
+    background: unset !important;
+    -webkit-text-fill-color: gold !important;
+    /* For Safari */
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateY(980deg);
+    }
+}
+
+#snapback {
+    background: linear-gradient(to right, red, white, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    animation-name: border;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes border {
+    0% {
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, white, red, white) 1;
+        padding: 0 1vw;
+    }
+
+    25% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, red, white, red) 1;
+        padding: 0 1vw;
+    }
+
+    50% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, white, red, white) 1;
+        padding: 0 1vw;
+    }
+
+    75% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, red, white, red) 1;
+        padding: 0 1vw;
+    }
+
+    100% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, white, red, white) 1;
+        padding: 0 1vw;
+    }
+}
+
+#snapBack {
+    background: linear-gradient(to right, red, white, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    padding: 0 1vw
+}
+
+#backwards-b {
+    color: whitesmoke !important;
+    background: unset !important;
+    -webkit-text-fill-color: whitesmoke !important;
+}
+
+.Modo {
+    background: linear-gradient(to right, purple, antiqueWhite, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Optional, for more support */
+    color: transparent;
+    /* Fallback */
+}
+
+
+.star-background {
+    position: relative;
+    width: 100vw;
+    height: fit-content;
+    overflow: hidden;
+    background: black;
+
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes shoot {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-100vw);
+        /* Move fully across the viewport */
+    }
+}
+
+.shooting-star {
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, white, rgba(255, 255, 255, 0));
+    animation: shoot 30s linear;
+}
+
+.hoverImg:hover {
+    padding: 0.5vh 0;
+    background-color: red;
+    margin: 1vh 0;
+
+}
+
+.run {
+    animation-name: run;
+    animation-duration: 1s;
+
+}
+
+@keyframes run {
+    0% {
+        transform: translateX(-100vw);
+    }
+}
+
+/* BACKGROUNDS */
+
+.adminMsgBG {
+    background-image: url(./images/snapAdmin.jpg);
+    background-size: 90vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.msgBG {
+    background-image: url(./images/snapbackLogo.jpg);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.auditBg {
+    background-image: url(./images/scrolling.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.userBg {
+    background-image: url(./images/ai.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.qaBG {
+    background-image: url(./images/QA.webp);
+    background-size: 80vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.websiteBg {
+    background-image: url(./images/matrix.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

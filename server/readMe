@@ -1,0 +1,29 @@
+You will need to change the email address and the links to the websites 
+
+foreverSnapBack@mail.com
+
+'http://localhost:5173/' --- all the links marked
+
+change the    'https://snapback.com' in server index.js and .env file ALLOWED_ORIGINS=ALLOWED_ORIGINS
+
+change MONGO_URI
+
+<!-- STeps for launch -->
+-- make sure you add .env file to your git ignore
+
+-- npm run build --- this also needs to be run any time a change is made to the website.
+
+---  npm run preview --- to preview the website as it was live
+
+get first user in postman http://localhost:8080/auth/register/user 
+<!-- MAKE SURE YOU HAVE THE BODY RUNNING IN JSON -->
+
+{
+  "accountName": "Cowboy",
+  "firstName": "Cow",
+  "lastName": "Boy",
+  "email": "cowboy@mail.com",
+  "password": "Password1",
+  "password2": "Password1",
+  "admin": "true"
+}
