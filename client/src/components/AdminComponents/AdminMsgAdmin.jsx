@@ -30,13 +30,13 @@ const AdminMsgAdmin = () => {
 
         e.preventDefault();
         e.stopPropagation();
-        
+
         const cleanMsgBody = DOMPurify.sanitize(state.msgBody, { USE_PROFILES: { html: true } });
         dispatch(addUserMsg({
             ...state,
             msgBody: cleanMsgBody
         }));
-      
+
         setState({
             firstName: user?.accountName,
             email: user?.email,
@@ -48,12 +48,12 @@ const AdminMsgAdmin = () => {
     };
 
     return (
-        <div style={{ height: "94vh", width: "100vw", display: "flex", alignItems: "center", background: "black", color: "whitesmoke", overflowY: "scroll" }}>
+        <div style={{ height: "94vh", width: "100vw", display: "flex", alignItems: "center", background: "black", color: "whitesmoke", overflowY: "scroll" }} className='responsiveThisDiv'>
 
             <div className='msgQuestionAdmin' style={{ padding: "0 1vw" }}>
                 <div style={{ width: "100%", height: "40%" }}></div>
 
-                <h4 style={{ textAlign: "center", width: "80%", height: "40%", display: "flex", alignItems: "center", fontFamily: "fangsong" }}>Write All Other Admin's A Message:</h4>
+                <h4 style={{  width: "100%", height: "40%", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "fangsong", textAlign: "center" }}>Write All Other Admin's A Message:</h4>
             </div>
 
             <form onSubmit={handleRegisterSubmit} style={{ width: "75%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -65,7 +65,7 @@ const AdminMsgAdmin = () => {
                     onChange={handleInput}
                     required
                     style={{ background: "white", width: "90%", height: "65vh", color: "black" }}
-                    
+
                     placeholder='Yall Are Doing A Great Job. :))'
                 />
 
