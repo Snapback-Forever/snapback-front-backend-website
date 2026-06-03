@@ -30,7 +30,7 @@ const authSlice = createAuthSlice({
     reducers: (create) => ({
 
         setToken: (state, action) => {
-     
+
             state.token = action.payload
         },
 
@@ -157,7 +157,7 @@ const authSlice = createAuthSlice({
             }
         ),
 
-          adminChangePassword: create.asyncThunk(
+        adminChangePassword: create.asyncThunk(
             async ({ userId, adminId, passwordNew, password2 }, thunkApi) => {
                 try {
                     const res = await axios.post(
@@ -299,18 +299,158 @@ const authSlice = createAuthSlice({
 
         getSingleUser: create.asyncThunk(
             async (_id, thunkApi) => {
-           
+
                 const res = await axios.get(`${authBaseURL}/getSingleUser/${_id}/user`);
                 return res.data;
             }, {
             fulfilled: (state, action) => {
-             
+
                 state.user = action.payload
             },
         }
         ),
 
-        
+        addMemeImage:
+        create.asyncThunk(
+          async (
+            payload,
+            thunkApi
+          ) => {
+            try {
+              const res =
+                await axios.post(
+                  "http://127.0.0.1:8080/auth/addMemeImage/meme",
+                  payload
+                );
+      
+              toast.success(
+                res.data?.message
+              );
+      
+              return res.data;
+            } catch (
+              error
+            ) {
+              const message =
+                error.response
+                  ?.data
+                  ?.message ||
+                "Failed to add meme image";
+      
+              toast.error(
+                message
+              );
+      
+              return thunkApi.rejectWithValue(
+                message
+              );
+            }
+          },
+          {
+            fulfilled: (
+              state,
+              action
+            ) => {
+              state.meme =
+                action.payload;
+      
+              state.successMessage =
+                action.payload?.message;
+      
+              state.errorMessage =
+                "";
+            },
+      
+            rejected: (
+              state,
+              action
+            ) => {
+              state.errorMessage =
+                action.payload;
+      
+              state.successMessage =
+                "";
+            },
+          }
+        ),
+
+        getAllMemes: create.asyncThunk(
+            async (_, thunkApi) => {
+              try {
+                const res = await axios.get(
+                  "http://127.0.0.1:8080/auth/getAllMemes/meme"
+                );
+          
+                return res.data;
+              } catch (error) {
+                const message =
+                  error.response?.data?.message ||
+                  "Failed to get memes";
+          
+                toast.error(message);
+          
+                return thunkApi.rejectWithValue(
+                  message
+                );
+              }
+            },
+            {
+              fulfilled: (state, action) => {
+                state.memes = action.payload;
+                state.errorMessage = "";
+                state.successMessage = "";
+              },
+          
+              rejected: (state, action) => {
+                state.errorMessage = action.payload;
+                state.successMessage = "";
+              },
+            }
+          ),
+
+          removeMemeImage: create.asyncThunk(
+            async (payload, thunkApi) => {
+              try {
+                const res = await axios.post(
+                  `http://127.0.0.1:8080/auth/removeMemeImage/${payload.id}/meme`,
+                  payload
+                );
+          
+                const message = res.data?.message;
+          
+                toast.success(message);
+          
+                return res.data;
+              } catch (error) {
+                const message = error.response?.data?.message;
+          
+                toast.error(message);
+          
+                return thunkApi.rejectWithValue(message);
+              }
+            },
+            {
+              fulfilled: (state, action) => {
+                state.meme = Object.assign(
+                  state.meme,
+                  action.payload
+                );
+          
+                state.successMessage =
+                  action.payload?.message;
+          
+                state.errorMessage = "";
+              },
+          
+              rejected: (state, action) => {
+                state.errorMessage =
+                  action.payload;
+          
+                state.successMessage = "";
+              }
+            }
+          ),
+
 
 
     })
@@ -318,10 +458,11 @@ const authSlice = createAuthSlice({
 
 export const {
 
-   register, login, logout, 
-   getAllUsers, getSingleUser,
-   editUser, deleteUser,
-   adminChangePassword, changePassword,
+    register, login, logout,
+    getAllUsers, getSingleUser,
+    editUser, deleteUser,
+    adminChangePassword, changePassword,
+    addMemeImage, getAllMemes, removeMemeImage
 
 
 } = authSlice.actions

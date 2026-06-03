@@ -42,6 +42,10 @@ const Body = ({ health, forever, login, setLogin }) => {
                 <button className="rounded msgButton" style={{ width: "80%", margin: "2vh 0" }}>Frequently Asked Questions</button>
             </Link>
 
+            <Link to={"/memes"} className='imgButton'>
+                <button className="rounded msgButton" style={{ width: "80%", margin: "2vh 0" }}>Snapback Coding Memes</button>
+            </Link>
+
             {!email ?
                 <h2 ><div style={{ display: "flex", justifyContent: "center" }} className='Modo'> <span className='Modo'>Email Us Directly:</span></div>
                     <a href="mailto:snapbackforever2026@proton.me" style={{ cursor: "grab" }} onMouseEnter={onHoverEmail} id='snapBack'>snapbackforever2026@proton.me</a></h2>

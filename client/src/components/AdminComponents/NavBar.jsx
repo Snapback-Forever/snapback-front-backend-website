@@ -54,6 +54,10 @@ const NavBar = ({ changeContent, setChangeContent, menuOpen, setMenuOpen }) => {
 
         <button className="navbar-button rounded" style={{ background: "goldenrod", padding: "0.5vh 1vw", margin: "0.5vh 0.5vw" }} onClick={() => setChangeContent("newAdminMsg")}>Send Msg To Admin</button>
 
+        <button className="navbar-button rounded" style={{ background: "goldenrod", padding: "0.5vh 1vw", margin: "0.5vh 0.5vw" }} onClick={() => setChangeContent("newMeme")}>Create Meme</button>
+
+        <button className="navbar-button rounded" style={{ background: "goldenrod", padding: "0.5vh 1vw", margin: "0.5vh 0.5vw" }} onClick={() => setChangeContent("allMeme")}>All Meme</button>
+
         <button className="navbar-button rounded" style={{ background: "red", padding: "0.5vh 1vw", margin: "0.5vh 0.5vw" }} onClick={() => dispatch(logout())}>LogOut</button>
 
       </div>

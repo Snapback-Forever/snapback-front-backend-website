@@ -8,8 +8,12 @@ import AdminRoute from './routes/AdminRoute';
 import MsgForm from './components/MsgForm';
 import Questions from './components/Questions';
 import AdminLandingPage from './pages/AdminLandingPage';
+import Memes from './components/Memes';
+import AllMemes from './components/AdminComponents/AllMemes';
 
 function App() {
+
+
 
 
   return (
@@ -20,6 +24,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/msgForm" element={<MsgForm />} />
           <Route path="/quest" element={<Questions />} />
+          <Route path="/memes" element={<Memes />} />
+          <Route path="/allMemes" element={<AllMemes />} />
         </Route>
 
         <Route element={<AdminRoute />}>

@@ -8,6 +8,18 @@
     display: none;
 }
 
+.drawHover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 95vw !important;
+    max-width: 95vw !important;
+    min-height: 90vh !important;
+    max-height: 90vh !important;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 /* NAVBAR  */
 .navbar {
     width: 100%;
@@ -28,6 +40,10 @@
 }
 
 @media (max-width: 1410px) {
+.responsiveMeme {
+    min-width: 100%;
+}
+
     .navbar {
         flex-direction: column;
         height: auto;
@@ -281,7 +297,7 @@ dialog {
     .msgQuestionImage {
       width: 100% !important;
       height: 250px !important;
-      background-image: url("./images/snapAdmin.jpg");
+      background-image: url("./images/admin.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

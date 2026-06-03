@@ -2,6 +2,7 @@ import db from "../db/index.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import config from "../config.js"
+import { deleteGridFsFileById } from '../gridfsHelper.js';
 
 const authController = {
 
@@ -299,7 +300,111 @@ const authController = {
             console.error(error);
             res.status(500).json({ message: "Server error during profile update." });
         }
-    }
+    },
+
+
+    addMemeImage: async (
+        req,
+        res
+      ) => {
+        const {
+          profilePicFileId,
+          profilePicBucketName,
+        } = req.body;
+      
+        if (
+          !profilePicFileId
+        ) {
+          return res
+            .status(400)
+            .json({
+              message:
+                "profilePicFileId is required.",
+            });
+        }
+      
+        try {
+          const meme =
+            await db.Meme.create({
+              profilePicFileId,
+              profilePicBucketName,
+            });
+      
+          return res.json({
+            ...meme.toObject(),
+            message:
+              "Meme created successfully!",
+          });
+        } catch (err) {
+          console.error(err);
+      
+          return res
+            .status(500)
+            .json({
+              message:
+                "Error creating meme.",
+            });
+        }
+      },
+
+      getAllMemes: async (req, res) => {
+        try {
+          const memes = await db.Meme.find({})
+            .sort({ createdAt: -1 });
+      
+          return res.json(memes);
+        } catch (err) {
+          console.error(err);
+      
+          return res.status(500).json({
+            message: "Error getting memes.",
+          });
+        }
+      },
+
+      removeMemeImage: async (req, res) => {
+        const { id } = req.params;
+        const { imageFileId } = req.body;
+      
+        if (!id) {
+          return res.status(400).json({
+            message: "Meme id is required."
+          });
+        }
+      
+        try {
+          const meme = await db.Meme.findById(id);
+      
+          if (!meme) {
+            return res.status(404).json({
+              message: "Meme not found."
+            });
+          }
+      
+          // Delete GridFS image
+          if (meme.profilePicFileId) {
+            await deleteGridFsFileById(
+              meme.profilePicBucketName || "images",
+              meme.profilePicFileId
+            );
+          }
+      
+          // Delete meme document
+          await db.Meme.findByIdAndDelete(id);
+      
+          return res.json({
+            deletedId: id,
+            message: "Meme deleted successfully!"
+          });
+      
+        } catch (err) {
+          console.error(err);
+      
+          return res.status(500).json({
+            message: "Error deleting meme."
+          });
+        }
+      },
 
 }
 

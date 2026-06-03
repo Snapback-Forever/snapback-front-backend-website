@@ -13,6 +13,9 @@ const controllers = {
     getAllUsers: authController.getAllUsers,
     deleteUser: authController.deleteUser,
     updateProfile: authController.updateProfile,
+    addMemeImage: authController.addMemeImage,
+    getAllMemes: authController.getAllMemes,
+    removeMemeImage: authController.removeMemeImage,
 
     userDetails: userDetails.userDetails,
     

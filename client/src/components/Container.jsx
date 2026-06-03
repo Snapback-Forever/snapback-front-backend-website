@@ -18,7 +18,7 @@ const Container = ({ snapped, setSnapped, health, forever }) => {
             return () => clearTimeout(timer);
         }
     }, [phase]);
-
+ 
     // Typewriter erase one by one
     useEffect(() => {
         if (phase === 'erasing' && display.length > 0) {

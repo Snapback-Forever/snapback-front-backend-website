@@ -39,5 +39,18 @@ authRouter
     .route("/userDetails/user")
     .get(controllers.userDetails)
 
+    authRouter
+    .route("/addMemeImage/meme")
+    .post(controllers.addMemeImage);
+
+    authRouter
+    .route("/getAllMemes/meme")
+    .get(controllers.getAllMemes)
+
+    authRouter
+  .route("/removeMemeImage/:id/meme")
+  .post(controllers.removeMemeImage)
+
+
 
 export default authRouter

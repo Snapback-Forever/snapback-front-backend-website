@@ -9,6 +9,8 @@ import AllUsersCard from './AllUsersCard'
 import QAReport from './QAReport'
 import AddAWebsite from './AddAWebsite'
 import AddAUser from './AddAUser'
+import AddMeme from './AddMeme'
+import AllMemes from './AllMemes'
 
 
 const Content = ({ changeContent, setChangeContent, allAdminMsg, trigger, setTrigger, allAuditReports, allUsers, allWebsites }) => {
@@ -106,6 +108,12 @@ const Content = ({ changeContent, setChangeContent, allAdminMsg, trigger, setTri
 
       {/* Make Admin To Admin Message */}
       {changeContent === "newAdminMsg" ? <AdminMsgAdmin /> : ""}
+
+      {/* Make a Meme */}
+      {changeContent === "newMeme" ? <AddMeme trigger={trigger} setTrigger={setTrigger} /> : ""}
+
+      {/* All meme */}
+      {changeContent === "allMeme" ? <AllMemes trigger={trigger} setTrigger={setTrigger} /> : ""}
 
     </div>
   )

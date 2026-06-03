@@ -1,16 +1,25 @@
 import config from "../config.js";
 import mongoose from "mongoose";
+import { initBuckets } from "../gridfs.js";
 
 const connect = (app) => {
-    mongoose
-        .connect(config.MONGO_URI)
-        .then(() => {
-            // console.log("the goose is on the lose")
+  mongoose
+    .connect(config.MONGO_URI)
+    .then(() => {
+      console.log("MongoDB connected");
 
-            app.listen(config.PORT, () => {
-                // console.log(`Tiny ears Listen on ${config.PORT}  `)
-            })
-        })
-}
+      // Initialize GridFS buckets
+      initBuckets();
 
-export default connect
+      console.log("GridFS buckets initialized");
+
+      app.listen(config.PORT, () => {
+        console.log(`Server listening on ${config.PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error("Mongo connection failed:", err);
+    });
+};
+
+export default connect;
