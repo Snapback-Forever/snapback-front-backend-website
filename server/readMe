@@ -2,7 +2,7 @@ You will need to change the email address and the links to the websites
 
 foreverSnapBack@mail.com
 
-'http://localhost:5173/' --- all the links marked
+'https://your-project.vercel.app/' --- all the links marked
 
 change the    'https://snapback.com' in server index.js and .env file ALLOWED_ORIGINS=ALLOWED_ORIGINS
 
@@ -15,7 +15,7 @@ change MONGO_URI
 
 ---  npm run preview --- to preview the website as it was live
 
-get first user in postman http://localhost:8080/auth/register/user 
+get first user in postman https://snapbackforever-website-api.onrender.com/auth/register/user 
 <!-- MAKE SURE YOU HAVE THE BODY RUNNING IN JSON -->
 
 {

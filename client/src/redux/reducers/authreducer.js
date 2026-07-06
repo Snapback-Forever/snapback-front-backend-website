@@ -1,8 +1,8 @@
 import axios from "axios"
 import { createAuthSlice } from "../creator.js"
 import { toast } from "react-hot-toast";
-
-const authBaseURL = "http://127.0.0.1:8080/auth"
+ 
+const authBaseURL = "https://snapbackforever-website-api.onrender.com/auth"
 
 
 const initialState = {
@@ -319,7 +319,7 @@ const authSlice = createAuthSlice({
             try {
               const res =
                 await axios.post(
-                  "http://127.0.0.1:8080/auth/addMemeImage/meme",
+                  "https://snapbackforever-website-api.onrender.com/auth/addMemeImage/meme",
                   payload
                 );
       
@@ -378,7 +378,7 @@ const authSlice = createAuthSlice({
             async (_, thunkApi) => {
               try {
                 const res = await axios.get(
-                  "http://127.0.0.1:8080/auth/getAllMemes/meme"
+                  "https://snapbackforever-website-api.onrender.com/auth/getAllMemes/meme"
                 );
           
                 return res.data;
@@ -412,7 +412,7 @@ const authSlice = createAuthSlice({
             async (payload, thunkApi) => {
               try {
                 const res = await axios.post(
-                  `http://127.0.0.1:8080/auth/removeMemeImage/${payload.id}/meme`,
+                  `https://snapbackforever-website-api.onrender.com/auth/removeMemeImage/${payload.id}/meme`,
                   payload
                 );
           

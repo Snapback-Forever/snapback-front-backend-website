@@ -2,7 +2,7 @@ import axios from "axios";
 import { createWebsiteSlice } from "../creator.js";
 import { toast } from "react-hot-toast";
 
-const websitePath = "http://127.0.0.1:8080/web";
+const websitePath = "https://snapbackforever-website-api.onrender.com/web";
 
 const initialState = {
     website: [],

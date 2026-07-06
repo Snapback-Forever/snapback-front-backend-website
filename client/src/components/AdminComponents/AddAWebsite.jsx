@@ -87,7 +87,7 @@ const AddAWebsite = ({ allWebsites, trigger, setTrigger }) => {
                     onChange={handleInput}
                     required
                     style={{ background: "black", width: "70%", color: "white" }}
-                    placeholder="http://localhost:5173/" // This should be a cloudinary web link
+                    placeholder="https://your-project.vercel.app/" // This should be a cloudinary web link
                 />
 
                 <label style={{ fontWeight: "bold" }}> About Website:</label>

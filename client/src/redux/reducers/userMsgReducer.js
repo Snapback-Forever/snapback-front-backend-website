@@ -2,7 +2,7 @@ import axios from "axios";
 import { createUserMsgSlice } from "../creator.js";
 import { toast } from "react-hot-toast";
 
-const userMsgPath = "http://127.0.0.1:8080/userMsg";
+const userMsgPath = "https://snapbackforever-website-api.onrender.com/userMsg";
 
 const initialState = {
 

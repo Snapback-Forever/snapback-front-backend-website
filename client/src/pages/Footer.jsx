@@ -27,7 +27,7 @@ const Footer = () => {
 
   const handleDonate = () => {
     // Redirect to your donation page or integrate a payment gateway here
-    window.open('http://localhost:5173/', '_blank', 'noopener,noreferrer');
+    window.open('https://your-project.vercel.app/', '_blank', 'noopener,noreferrer');
   };
 
   const websiteUrl = encodeURIComponent('https://snapback.com');

@@ -10,7 +10,7 @@ const AddMeme = ({ trigger, setTrigger }) => {
     memeImageFile: null,
   });
 
-  const baseUrl = "http://127.0.0.1:8080";
+ const baseUrl = "https://snapbackforever-website-api.onrender.com"
 
   const handleUploadImage = (e) => {
     const file = e.target.files[0];
