@@ -1,51 +1,102 @@
-import express from "express"
-import cors from "cors"
-import config from "./config.js"
-import db from "./db/index.js"
-import routes from "./routes/index.js"
-import cookieParser from "cookie-parser"
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
+import mongoSanitize from "express-mongo-sanitize";
+import cookieParser from "cookie-parser";
 
+import config from "./config.js";
+import db from "./db/index.js";
+import routes from "./routes/index.js";
 
-const app = express()
+const app = express();
 
-const PORT = config.PORT || 8080
+const PORT = config.PORT || 8080;
 
+/* -----------------------------
+   ALLOWED ORIGINS
+------------------------------*/
 const allowedOrigins = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-    'http://localhost:4173',
-    'http://127.0.0.1:8080',
-    'https://snapback.com'
-  ];
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "http://localhost:5174",
+  "http://127.0.0.1:5174",
+  "http://localhost:4173",
+  "https://snapbackForever.com"
+];
 
-  app.use(cors({
+/* -----------------------------
+   SECURITY HEADERS
+------------------------------*/
+app.use(helmet());
+app.disable("x-powered-by");
+
+/* -----------------------------
+   RATE LIMITING
+------------------------------*/
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 min
+  max: 100, // limit per IP
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
+app.use(limiter);
+
+/* -----------------------------
+   CORS CONFIG
+------------------------------*/
+app.use(
+  cors({
     origin: function (origin, callback) {
-      // console.log('Request Origin:', origin); // <-- add this
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error('Not allowed by CORS'));
+        callback(new Error("Not allowed by CORS"));
       }
     },
-    credentials: true
-  }));
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  })
+);
 
-app.use(express.json())
-app.use(cookieParser())
+/* -----------------------------
+   BODY PARSERS
+------------------------------*/
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+/* -----------------------------
+   DATA SANITIZATION
+------------------------------*/
+app.use(mongoSanitize());
+
+/* -----------------------------
+   ROOT TEST ROUTE
+------------------------------*/
 app.get("/", (req, res) => {
-    res.json({
-        message: "Server running at " + PORT
-    })
-})
+  res.json({
+    message: "Server running at " + PORT
+  });
+});
 
+/* -----------------------------
+   ROUTES
+------------------------------*/
+app.use(routes);
+
+/* -----------------------------
+   DATABASE CONNECTION
+------------------------------*/
+db.connect(app);
+
+/* -----------------------------
+   START SERVER
+------------------------------*/
 app.listen(PORT, () => {
-    console.log("server running at " + PORT)
-})
+  console.log("server running at " + PORT);
+});
 
-app.use(routes)
-db.connect(app)
-
-export default app
+export default app;
