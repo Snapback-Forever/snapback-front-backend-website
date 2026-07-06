@@ -1,1 +1,13 @@
-node_modules
+# dependencies
+node_modules/
+
+# environment variables
+.env
+
+# logs
+logs
+*.log
+
+# build output (optional for backend, important for frontend)
+dist/
+build/

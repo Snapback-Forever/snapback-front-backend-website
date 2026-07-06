@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
-import mongoSanitize from "express-mongo-sanitize";
 import cookieParser from "cookie-parser";
 
 import config from "./config.js";
@@ -17,12 +16,7 @@ const PORT = config.PORT || 8080;
    ALLOWED ORIGINS
 ------------------------------*/
 const allowedOrigins = [
-  "http://localhost:5173",
-  "http://127.0.0.1:5173",
-  "http://localhost:5174",
-  "http://127.0.0.1:5174",
-  "http://localhost:4173",
-  "https://snapbackForever.com"
+ "https://snapbackForever.com"
 ];
 
 /* -----------------------------
@@ -68,10 +62,6 @@ app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-/* -----------------------------
-   DATA SANITIZATION
-------------------------------*/
-app.use(mongoSanitize());
 
 /* -----------------------------
    ROOT TEST ROUTE
