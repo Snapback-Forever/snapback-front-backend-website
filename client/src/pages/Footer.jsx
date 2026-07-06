@@ -1,5 +1,5 @@
 
-import snapBack from "../images/snapBack.gif"
+import snapBack from "../images/snapback.gif"
 
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
