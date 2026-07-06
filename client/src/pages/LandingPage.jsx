@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 
 import logo from "../images/wave.gif"
+import forever from "../images/foreverNeededGiftsLOGO.png"
 import health from "../images/snapBackHealthy.png"
 
 import Container from "../components/Container";
