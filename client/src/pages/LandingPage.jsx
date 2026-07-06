@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 
 
 import logo from "../images/wave.gif"
-import forever from "../images/foreverNeededGIftsLOGO.png"
 import health from "../images/snapBackHealthy.png"
 
 import Container from "../components/Container";
@@ -40,7 +39,7 @@ const LandingPage = () => {
 
             <Logo logo={logo} snapped={snapped} setLoginModal={setLoginModal} />
 
-            <Container snapped={snapped} setSnapped={setSnapped} health={health} forever={forever} />
+            <Container snapped={snapped} setSnapped={setSnapped} health={health} /> 
 
             <dialog open={loginModal}> 
                 <Login loginModal={loginModal} setLoginModal={setLoginModal} />

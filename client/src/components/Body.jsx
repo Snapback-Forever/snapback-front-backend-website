@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllWebsites } from '../redux/reducers/websiteReducer'
 
-const Body = ({ health, forever, login, setLogin }) => {
+const Body = ({ health, login, setLogin }) => {
 
     const dispatch = useDispatch()
 

@@ -4,7 +4,7 @@ import Body from './Body'
 import DOMPurify from 'dompurify';
 import StarsBackground from './Stars';
 
-const Container = ({ snapped, setSnapped, health, forever }) => {
+const Container = ({ snapped, setSnapped, health }) => {
 
     const mistyped = 'The Errors ';
     const correct = `Your Mistakes `;
@@ -83,7 +83,7 @@ const Container = ({ snapped, setSnapped, health, forever }) => {
                     <h2 style={{ textAlign: "center", color: "red", width: "95%" }} className="Modo"><u>Show The World How You SnapBack!</u></h2>
 
 
-                    <Body health={health} forever={forever} />
+                    <Body health={health} />
                 </div>
             </StarsBackground>
 
