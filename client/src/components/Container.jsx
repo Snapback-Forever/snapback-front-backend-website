@@ -76,6 +76,7 @@ const Container = ({ snapped, setSnapped, health }) => {
                     alignItems: "center", // optional: to center horizontally
 
                 }}>
+
                     <h1 className="Modo">Set New Ambitions, Persist, Boldly Achieve Constant Knack</h1>
 
                     <h5 style={{ color: "antiquewhite", textAlign: "center", width: "90%" }}>SNAPBACK Is A Call To NEVER Give Up, Even When Everything Seems Against You. {" "}

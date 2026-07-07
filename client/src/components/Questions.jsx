@@ -60,7 +60,7 @@ const Questions = () => {
                           <div style={{ border: "solid black", margin: "2vh 0" }}></div>
                           <div style={{ fontSize: "larger" }}>
                             <b>Admin Response:</b>{" "}
-                            <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(msg?.answer) }} />
+                            <span style={{  whiteSpace: "pre-wrap"  }} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(msg?.answer) }} />
                           </div>
                         </Card.Body>
                       </Card>
