@@ -38,7 +38,7 @@ const MemeCard = ({ meme }) => {
     const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(imageUrl)}`
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative", background: "white", margin: "1vh 1vw", height: "60vh", padding: "1vh 1vw", justifyContent: "center", width: "30vw" }} className='responsiveMeme'>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative", background: "rgba(245, 245, 245, 0.342)", margin: "1vh 1vw", height: "60vh", padding: "1vh 1vw", justifyContent: "center", width: "30vw" }} className='responsiveMeme'>
 
             <div style={{ height: "100%" }}>
 
