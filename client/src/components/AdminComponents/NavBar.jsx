@@ -26,7 +26,7 @@ const NavBar = ({ setChangeContent, menuOpen, setMenuOpen }) => {
 
                 <div
                     style={{
-                        marginLeft: "1rem",
+                        margin: "1vw",
                         fontSize: "2rem",
                         fontVariant: "all-petite-caps",
                         fontWeight: "bold"
