@@ -16,8 +16,7 @@ const PORT = config.PORT || 8080;
    ALLOWED ORIGINS
 ------------------------------*/
 const allowedOrigins = [
- "https://snapback-front-backend-website.vercel.app",
-   "https://snapback-front-backend-website.vercel.app"
+ "https://snapback-front-backend-website.vercel.app"
 ];
 
 /* -----------------------------
@@ -48,15 +47,23 @@ app.use(limiter);
 app.use(
   cors({
     origin: function (origin, callback) {
+
+      console.log("Incoming Origin:", origin);
+
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.log("Blocked CORS Origin:", origin);
         callback(new Error("Not allowed by CORS"));
       }
+
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization"
+    ]
   })
 );
 
