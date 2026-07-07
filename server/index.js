@@ -22,7 +22,11 @@ const allowedOrigins = [
 /* -----------------------------
    SECURITY HEADERS
 ------------------------------*/
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false
+  })
+);
 app.disable("x-powered-by");
 
 /* -----------------------------
