@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import rateLimit from "express-rate-limit";
 import cookieParser from "cookie-parser";
 
 import config from "./config.js";
@@ -29,17 +28,6 @@ app.use(
 );
 app.disable("x-powered-by");
 
-/* -----------------------------
-   RATE LIMITING
-------------------------------*/
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 min
-  max: 100, // limit per IP
-  standardHeaders: true,
-  legacyHeaders: false
-});
-
-app.use(limiter);
 
 /* -----------------------------
    CORS CONFIG
