@@ -36,7 +36,7 @@ const NavBar = ({ changeContent, setChangeContent, menuOpen, setMenuOpen }) => {
       </div>
 
       {/* Show menu if open on small screens, always open on larger screens */}
-      <div className="buttons-container" style={{ display: menuOpen ? "flex" : "" }} >
+      <div className="buttons-container" style={{ display: menuOpen ? "flex" : "", flexDirection: "column" }} >
 
         <button className="navbar-button rounded" style={{ background: "goldenrod", padding: "0.5vh 1vw", margin: "0.5vh 0.5vw" }} onClick={() => setChangeContent("msg")}>📨 Messages</button>
 
