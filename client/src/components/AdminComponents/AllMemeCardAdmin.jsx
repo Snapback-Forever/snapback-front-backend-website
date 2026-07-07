@@ -11,7 +11,7 @@ const AllMemeCardAdmin = ({ meme, setTrigger }) => {
     const tapCountRef = useRef(0)
     const lastTapRef = useRef(0)
 
-    const imageUrl = `https://snapbackforever-website-api.onrender.com/upload/image/${meme.profilePicFileId}?bucketName=${meme.profilePicBucketName}`
+       const imageUrl = `https://snapbackforever-website-api.onrender.com/upload/image/${meme.profilePicFileId}?bucketName=${meme.profilePicBucketName}`
 
     const deleteTheMemeImage = () => {
         const now = Date.now()
