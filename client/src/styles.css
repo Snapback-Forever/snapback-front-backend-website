@@ -23,20 +23,60 @@
 /* NAVBAR  */
 .navbar {
     width: 100%;
-    height: 8vh;
     background: whitesmoke;
     color: black;
     display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.navbar-header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
 }
 
 .menu-toggle {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
-    font-size: 4vh;
-    margin-left: auto;
+    background: goldenrod;
+    color: white;
+    cursor: pointer;
+    padding: .6rem;
+    margin-right: 1rem;
+}
 
+.buttons-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: .75rem;
+    gap: .5rem;
+}
+
+.buttons-container.open {
+    display: flex;
+}
+
+.navbar-button {
+    width: 100%;
+    background: goldenrod;
+    color: white;
+    border: none;
+    padding: .8rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.navbar-button:hover {
+    filter: brightness(1.1);
+}
+
+.logout-button {
+    background: crimson;
 }
 
 @media (max-width: 1410px) {
