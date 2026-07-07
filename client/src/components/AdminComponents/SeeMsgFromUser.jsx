@@ -65,7 +65,7 @@ const SeeMsgFromUser = ({ msg, trigger, setTrigger }) => {
                 <h6>First Name : {msg?.firstName}</h6>
                 <h6>Last Name : {msg?.lastName}</h6>
                 <h5>Email: {msg?.email}</h5>
-                <h5 style={{ fontSize: "larger", textAlign: "center" }}><b>Question:</b> <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(msg?.msgBody) }} /></h5>
+                <h5 style={{ fontSize: "larger", textAlign: "center" }}><b>Question:</b> <span style={{  whiteSpace: "pre-wrap"  }}dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(msg?.msgBody) }} /></h5>
                 <div style={{ width: "100%", display: "flex", justifyContent: "end" }}>
                     <h6>Msg Status: {msg?.status}</h6>
                 </div>

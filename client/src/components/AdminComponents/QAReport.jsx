@@ -26,7 +26,7 @@ const QAReport = ({ report, trigger, setTrigger }) => {
                 <h6 style={{ textAlign: "end", display: "flex" }}>Report Type: {!report?.msgNotFAQ ? <p style={{ color: "green", marginLeft: "0.5vw" }}> FAQ</p> : <p style={{ color: "red", marginLeft: "0.5vw" }}>Not A FAQ</p>}</h6>
                 <h3>{report?.serviceProvided}</h3>
                 <div style={{ border: 'solid black', margin: "2vh 0" }}></div>
-                <div style={{ fontSize: "larger" }}><b>Admin Response:</b> <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(report?.answer) }} /></div>
+                <div style={{ fontSize: "larger" }}><b>Admin Response:</b> <span style={{  whiteSpace: "pre-wrap"  }}dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(report?.answer) }} /></div>
             </Card.Body>
 
             <div style={{ width: "100%", display: "flex", justifyContent: "end", margin: "1vh 0" }}>
