@@ -41,12 +41,11 @@ const Logo = ({ logo, snapped, setLoginModal }) => {
           }}
         >
 
-         <h1
+       <h1
   id="snapback"
   style={{
-    fontSize: "clamp(2.5rem, 15vw, 6rem)",
     fontFamily: "ui-serif",
-    margin: "clamp(1rem, 4vh, 3rem) 0",
+    margin: "6vh 0",
     zIndex: 3,
     display: "flex",
     justifyContent: "center",

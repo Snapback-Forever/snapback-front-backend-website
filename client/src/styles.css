@@ -20,6 +20,35 @@
     z-index: 1;
 }
 
+#snapback {
+    font-size: 9.5vh;
+
+    background: linear-gradient(to right, red, white, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    animation-name: border;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/* Only changes smaller screens */
+@media (max-width: 648px) {
+    #snapback {
+        font-size: clamp(4rem, 16vw, 6rem);
+        white-space: nowrap;
+    }
+}
+
+/* Prevent overflow on very narrow phones */
+@media (max-width: 390px) {
+    #snapback {
+        font-size: clamp(3.4rem, 15.5vw, 4.5rem);
+    }
+}
+
 /* NAVBAR  */
 .navbar {
     width: 100%;
@@ -211,7 +240,7 @@ dialog {
 }
 
 .responsive-container {
-    max-width: 100%;
+    width: 100vw;
     height: 38vh;
     overflow-y: scroll;
     display: flex;
@@ -240,11 +269,7 @@ dialog {
     text-align: center;
 }
 
-@media (max-width: 428px) { 
-    #snapback {
-        border: none !important;
-    }
-}
+
 
 @media (max-width: 648px) {
     .responsive-container {
@@ -260,13 +285,13 @@ dialog {
     }
 
     .logo-div {
-      max-width: 100%;
+        width: 100vw;
         min-width: 0;
         min-height: 150px;
     }
 
     .text-section {
-       max-width: 100%;
+        width: 100vw;
         margin-top: 10px;
     }
 
@@ -427,7 +452,7 @@ dialog {
 @media (max-width: 760px) {
 
     .text-section {
-       max-width: 100%;
+        width: 100vw;
         margin-top: 10px;
     }
 
@@ -493,17 +518,6 @@ dialog {
     }
 }
 
-#snapback {
-    background: linear-gradient(to right, red, white, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-
-    animation-name: border;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-}
 
 @keyframes border {
     0% {
@@ -546,14 +560,6 @@ dialog {
     }
 }
 
-#snapBack {
-    background: linear-gradient(to right, red, white, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    padding: 0 1vw
-}
 
 #backwards-b {
     color: whitesmoke !important;
@@ -574,7 +580,7 @@ dialog {
 
 .star-background {
     position: relative;
-   max-width: 100%;
+    width: 100vw;
     height: fit-content;
     overflow: hidden;
     background: black;
