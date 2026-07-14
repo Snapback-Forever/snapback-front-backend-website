@@ -41,35 +41,50 @@ const Logo = ({ logo, snapped, setLoginModal }) => {
           }}
         >
 
-          <h1
-            id="snapback"
-            style={{
-              fontSize: "9.5vh",
-              fontFamily: "ui-serif",
-              margin: "6vh 0",
-              zIndex: 3,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            SNAP
-            <span
-              id="backwards-b"
-              style={{
-                display: "inline-block",
-                transform: snapped ? "scaleX(-1)" : "scaleX(1)",
-                transition: "transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55)",
-                // Option 1: Remove color to preserve gradient.
-                // Option 2: Use 'color: whitesmoke' but DO NOT use webkit-text-fill-color: transparent on parent.
-              }}
-            >
-              B
-            </span>
-            ACK
+         <h1
+  id="snapback"
+  style={{
+    fontSize: "clamp(2.5rem, 8vw, 6rem)",
+    fontFamily: "ui-serif",
+    margin: "clamp(1rem, 4vh, 3rem) 0",
+    zIndex: 3,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "nowrap",
+    textAlign: "center",
+    lineHeight: 1,
+    width: "100%",
+  }}
+>
+  SNAP
+  <span
+    id="backwards-b"
+    style={{
+      display: "inline-block",
+      transform: snapped ? "scaleX(-1)" : "scaleX(1)",
+      transition: "transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55)",
+    }}
+  >
+    B
+  </span>
+  ACK
 
-        <p onClick={() => setClicks(c => c + 1)} style={{ fontSize: "0.5em" }} className='spin'>©</p>
-          </h1>
+  <p
+    onClick={() => setClicks(c => c + 1)}
+    className="spin"
+    style={{
+      fontSize: "0.4em",
+      margin: 0,
+      marginLeft: "0.15em",
+      alignSelf: "flex-start",
+      cursor: "pointer",
+      userSelect: "none",
+    }}
+  >
+    ©
+  </p>
+</h1>
 
         </div>
       </section>
