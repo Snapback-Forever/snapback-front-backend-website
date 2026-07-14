@@ -1,150 +1,60 @@
-/* =========================================================
-   GLOBAL RESET / RESPONSIVE BASE
-   ========================================================= */
-
-*,
-*::before,
-*::after {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-}
-
-body {
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-}
-
-img,
-video,
-canvas,
-svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-button,
-input,
-textarea,
-select {
-    max-width: 100%;
-    font: inherit;
-}
-
-textarea {
-    resize: vertical;
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
 
-/* =========================================================
-   MODALS / OVERLAYS
-   ========================================================= */
-
 .drawHover {
     position: fixed;
-    inset: 5dvh 2.5%;
-    width: 95%;
-    max-width: 95%;
-    height: auto;
-    min-height: 0;
-    max-height: 90dvh;
-    overflow: auto;
-    z-index: 10;
-}
-
-dialog {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    max-height: none;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.514);
-    overflow: auto;
-    z-index: 30;
-}
-
-.loginModal {
-    position: absolute;
     top: 50%;
     left: 50%;
-    width: min(31.25rem, 92%);
-    max-width: 92%;
-    max-height: 85dvh;
-    min-height: 18rem;
+    min-width: 95vw !important;
+    max-width: 95vw !important;
+    min-height: 90vh !important;
+    max-height: 90vh !important;
     transform: translate(-50%, -50%);
-    padding: 1rem;
-    background-color: whitesmoke;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 31;
+    z-index: 1;
 }
 
-/* =========================================================
-   NAVBAR
-   ========================================================= */
-
+/* NAVBAR  */
 .navbar {
     width: 100%;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
     background: whitesmoke;
     color: black;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    box-sizing: border-box;
 }
 
 .navbar-header {
-    width: 100%;
-    min-width: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.75rem;
-}
-
-.menu-div {
-    min-width: 0;
-    max-width: 100%;
 }
 
 .menu-toggle {
     display: flex;
-    flex: 0 0 auto;
     justify-content: center;
     align-items: center;
-    min-height: 2.75rem;
-    padding: 0.6rem 0.8rem;
-    margin-right: 1rem;
     border: none;
-    border-radius: 0.35rem;
     background: goldenrod;
     color: white;
     cursor: pointer;
-    touch-action: manipulation;
+    padding: .6rem;
+    margin-right: 1rem;
 }
 
 .buttons-container {
     display: none;
     flex-direction: column;
     width: 100%;
-    min-width: 0;
-    margin-top: 0.75rem;
-    gap: 0.5rem;
+    margin-top: .75rem;
+    gap: .5rem;
 }
 
 .buttons-container.open {
@@ -153,251 +63,496 @@ dialog {
 
 .navbar-button {
     width: 100%;
-    min-height: 2.75rem;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 0.3rem;
     background: goldenrod;
     color: black;
-    font-size: 1rem;
+    border: none;
+    padding: .8rem;
     cursor: pointer;
-    touch-action: manipulation;
+    font-size: 1rem;
 }
 
 .navbar-button:hover {
     filter: brightness(1.1);
 }
 
-.navbar-button:focus-visible,
-.menu-toggle:focus-visible,
-.msgButton:focus-visible {
-    outline: 3px solid currentColor;
-    outline-offset: 2px;
-}
-
 .logout-button {
     background: crimson;
 }
 
-/* =========================================================
-   MAIN LAYOUT
-   ========================================================= */
+@media (max-width: 1410px) {
+.responsiveMeme {
+    min-width: 100%;
+}
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .menu-div {
+        width: 65vw;
+    }
+
+    .menu-toggle {
+        display: block;
+
+    }
+
+    .buttons-container {
+        display: none;
+        flex-direction: column;
+        width: 97%;
+    }
+
+    .imageCard {
+        min-width: 94.5vw;
+        min-height: 20vh;
+    }
+
+    .imgButton {
+        min-width: 94vw;
+
+    }
+}
+
+@media (max-width: 600px) {
+    .buttons-container[style*="display: flex"] {
+        display: flex !important;
+    }
+
+    .navbar-button {
+        width: 100%;
+    }
+}
+
+/* end of navbar */
+
+dialog {
+    background-color: rgba(0, 0, 0, 0.514);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+}
+
+.loginModal {
+    width: 50vh;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: whitesmoke;
+    overflow-y: scroll;
+}
 
 #container {
     width: 100%;
-    min-height: 90svh;
-    height: 90dvh;
-    overflow: auto;
+    height: 90vh;
     background-color: black;
 }
 
-.responsiveThisDiv {
-    min-width: 0;
-    max-width: 100%;
-}
-
-.responsiveContent,
-.faqResponsive {
-    min-width: 0;
-    max-width: 100%;
-}
-
-.responsive-container {
-    width: 100%;
-    min-height: 18rem;
-    height: clamp(18rem, 38dvh, 34rem);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    overflow-y: auto;
-    overflow-x: hidden;
+.msgQuestion {
     background-image: url("./images/snapAdmin.jpg");
-    background-size: cover;
-    background-position: right center;
     background-repeat: no-repeat;
-}
-
-.logo-div {
-    flex: 1 1 20rem;
-    width: min(40%, 40rem);
-    min-width: 12.5rem;
-    min-height: 12.5rem;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.text-section {
-    flex: 1 1 20rem;
-    min-width: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    text-align: center;
-    overflow-wrap: anywhere;
-}
-
-.responsiveMeme {
-    max-width: 100%;
-    min-width: 0;
-}
-
-.imageCard,
-.imgButton {
-    max-width: 100%;
-}
-
-/* =========================================================
-   MESSAGE / QUESTION PANELS
-   ========================================================= */
-
-.msgQuestion,
-.msgQuestionAdmin {
-    width: 20%;
-    min-width: 0;
+    background-size: 100vh;
+    background-position: top;
     height: 100%;
+    width: 20%;
+}
+
+.msgQuestionAdmin {
     background-image: url("./images/snapAdmin.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
+    background-size: 100vh;
+    background-position: top;
+    height: 100%;
+    width: 20%;
 }
 
-.msgQuestionImage {
-    max-width: 100%;
-}
 
-.messageForm {
-    min-width: 0;
-    max-width: 100%;
-}
-
-.messageForm input,
-.messageForm textarea,
-.messageForm button {
-    max-width: 100%;
-}
-
-.question,
-.snapQuest,
-.favicon {
+.question {
+    background-image: url("./images/questionMark.gif");
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
-}
-
-.question,
-.favicon {
-    background-image: url("./images/questionMark.gif");
 }
 
 .snapQuest {
     background-image: url("./images/snapQuestion.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.favicon {
+    background-image: url("./images/questionMark.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .msgButton {
-    min-height: 2.75rem;
-    padding: clamp(0.65rem, 1dvh, 1rem) clamp(0.9rem, 2vw, 1.5rem);
+    background: goldenRod;
+    padding: 1vh 2vw;
+    color: black;
+    font-size: larger;
     border: none;
     border-radius: 8px;
-    background: goldenrod;
-    color: black;
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    /* Optional for rounded corners */
     cursor: pointer;
-    touch-action: manipulation;
 }
 
 .msgButton:hover {
     background-color: red;
 }
 
-/* =========================================================
-   FAQ LAYOUT
-   ========================================================= */
-
-.faqSidePanel,
-.faqMainPanel {
-    min-width: 0;
-    max-width: 100%;
+.responsive-container {
+    width: 100vw;
+    height: 38vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url(./images/snapAdmin.jpg);
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
 }
 
-.faqMainPanel .card {
-    max-width: 100%;
+.logo-div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40vw;
+    min-width: 200px;
+    min-height: 200px;
+    /* image aspect ratio */
 }
 
-/* =========================================================
-   RESPONSE CARDS
-   ========================================================= */
+.text-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 428px) { 
+    #snapback {
+        border: none !important;
+    }
+}
+
+@media (max-width: 648px) {
+    .responsive-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 55vh;
+    }
+
+    .Modo {
+        width: 90%;
+    }
+
+    .logo-div {
+        width: 100vw;
+        min-width: 0;
+        min-height: 150px;
+    }
+
+    .text-section {
+        width: 100vw;
+        margin-top: 10px;
+    }
+
+    .cardResponding {
+        width: 98% !important;
+        max-height: fit-content !important;
+        background-color: antiquewhite;
+        display: flex;
+        flex-direction: column;
+        margin: 2vh 0;
+    }
+
+    .cardRespondingTextImage {
+        max-width: 100% !important;
+    }
+
+    .cardRespondingText {
+        height: fit-content !important;
+    }
+
+    .cardRespondingTextDate {
+        font-size: small;
+    }
+
+}
+
+.msgQuestion {
+    background-image: url("./images/snapAdmin.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vh;
+    background-position: top;
+    height: 100%;
+    width: 20%;
+  }
+  
+  @media (max-width: 760px) {
+
+
+    .responsiveThisDiv{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .msgQuestionAdmin {
+        min-width: 100%;
+        min-height: 50vh;
+    }
+
+    .responsiveContent {
+      display: flex !important;
+      flex-direction: column !important;
+      height: auto !important;
+      width: 100vw !important;
+      overflow-y: auto !important;
+    }
+  
+    .msgQuestion {
+      width: 100% !important;
+      height: auto !important;
+      padding: 0 !important;
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: none; /* move the image to the inner div */
+    }
+  
+    .msgQuestionImage {
+      width: 100% !important;
+      height: 250px !important;
+      background-image: url("./images/admin.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  
+    .msgQuestion h1 {
+      width: 100% !important;
+      height: auto !important;
+      margin: 1rem 0 !important;
+      display: block !important;
+      text-align: center !important;
+      align-items: unset !important;
+    }
+  
+    .messageForm {
+      width: 100% !important;
+      max-width: 100% !important;
+      order: 2;
+      align-items: center;
+    }
+  
+    .messageForm input {
+      width: 90% !important;
+    }
+  
+    .messageForm textarea {
+      width: 90% !important;
+    }
+  
+    .messageForm button {
+      width: 90% !important;
+    }
+  }
+  
+  @media (max-width: 760px) {
+    .faqResponsive {
+      flex-direction: column !important;
+      height: auto !important;
+      width: 100vw !important;
+      align-items: stretch !important;
+      overflow-y: auto !important;
+    }
+  
+    .faqSidePanel {
+      width: 100% !important;
+      height: auto !important;
+      padding: 2vh 4vw !important;
+      align-items: center;
+      order: 1;
+    }
+  
+    .faqMainPanel {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 60vh;
+      order: 2;
+      overflow-y: visible !important;
+      align-items: center;
+    }
+  
+    .faqSidePanel .question,
+    .faqSidePanel .snapQuest {
+      width: 100% !important;
+      max-width: 400px;
+      height: 220px !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  
+    .faqSidePanel h4 {
+      margin-top: 1rem;
+      text-align: center;
+    }
+  
+    .faqMainPanel > h1 {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+  
+    .faqMainPanel .card {
+      width: 95% !important;
+    }
+  }
+  
+
+@media (max-width: 760px) {
+
+    .text-section {
+        width: 100vw;
+        margin-top: 10px;
+    }
+
+    .cardResponding {
+        width: 90vw !important;
+        max-height: fit-content !important;
+        background-color: antiquewhite;
+        display: flex;
+        margin: 2vh 0;
+    }
+
+    .cardRespondingTextImage {
+        max-width: 30%;
+        max-height: 20vh;
+    }
+
+    .cardRespondingText {
+        height: 17vh !important;
+    }
+
+    .cardRespondingTextDate {
+        font-size: small;
+    }
+
+}
+
 
 .cardResponse {
-    width: min(90%, 75rem);
-    height: auto;
+    width: 90vw;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-inline: auto;
-    margin-bottom: clamp(2rem, 10dvh, 6rem);
+    margin-bottom: 10vh;
 }
 
 .cardResponding {
-    width: min(80%, 65rem);
-    max-width: 100%;
-    max-height: 50dvh;
-    display: flex;
-    margin: clamp(0.75rem, 2dvh, 1.5rem) 0;
-    overflow: auto;
+    width: 80vw;
+    max-height: 50vh;
     background-color: antiquewhite;
+    display: flex;
+    margin: 2vh 0;
 }
-
-.cardRespondingTextImage {
-    flex: 0 1 30%;
-    max-width: 30%;
-    object-fit: cover;
-}
-
-.cardRespondingText {
-    flex: 1 1 auto;
-    min-width: 0;
-    overflow-wrap: anywhere;
-}
-
-.cardRespondingTextDate {
-    overflow-wrap: anywhere;
-}
-
-/* =========================================================
-   TYPOGRAPHY / LOGO EFFECTS
-   ========================================================= */
 
 .spin {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-left: 1vw;
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
     color: gold !important;
     background: unset !important;
     -webkit-text-fill-color: gold !important;
-    animation: spin 3s infinite;
+    /* For Safari */
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateY(980deg);
+    }
 }
 
 #snapback {
-    max-width: 100%;
     background: linear-gradient(to right, red, white, red);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: border 3s infinite;
+
+    animation-name: border;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes border {
+    0% {
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, white, red, white) 1;
+        padding: 0 1vw;
+    }
+
+    25% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, red, white, red) 1;
+        padding: 0 1vw;
+    }
+
+    50% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, white, red, white) 1;
+        padding: 0 1vw;
+    }
+
+    75% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, red, white, red) 1;
+        padding: 0 1vw;
+    }
+
+    100% {
+        /* Gradient Border */
+        border: 5px double transparent;
+        /* Use transparent to let border-image show */
+        border-image: linear-gradient(to right, white, red, white) 1;
+        padding: 0 1vw;
+    }
 }
 
 #snapBack {
-    max-width: 100%;
-    padding: 0 1vw;
     background: linear-gradient(to right, red, white, red);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    -webkit-text-fill-color: transparent;
+    padding: 0 1vw
 }
 
 #backwards-b {
@@ -407,83 +562,36 @@ dialog {
 }
 
 .Modo {
-    max-width: 100%;
-    background: linear-gradient(to right, purple, antiquewhite, purple);
+    background: linear-gradient(to right, purple, antiqueWhite, purple);
     -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     -webkit-text-fill-color: transparent;
-    overflow-wrap: anywhere;
+    background-clip: text;
+    /* Optional, for more support */
+    color: transparent;
+    /* Fallback */
 }
 
-/* =========================================================
-   STAR BACKGROUND / ANIMATIONS
-   ========================================================= */
 
 .star-background {
     position: relative;
-    width: 100%;
-    min-height: 1px;
-    height: auto;
+    width: 100vw;
+    height: fit-content;
     overflow: hidden;
     background: black;
+
 }
 
 .star {
     position: absolute;
     width: 2px;
     height: 2px;
-    border-radius: 50%;
     background: white;
+    border-radius: 50%;
     animation: blink 2s infinite;
 }
 
-.shooting-star {
-    position: absolute;
-    width: min(120px, 35vw);
-    height: 2px;
-    background: linear-gradient(90deg, white, rgba(255, 255, 255, 0));
-    animation: shoot 30s linear;
-}
-
-.run {
-    animation: run 1s;
-}
-
-.hoverImg:hover {
-    padding: 0.5dvh 0;
-    margin: 1dvh 0;
-    background-color: red;
-}
-
-@keyframes spin {
-    from {
-        transform: rotateY(0deg);
-    }
-
-    to {
-        transform: rotateY(1080deg);
-    }
-}
-
-@keyframes border {
-    0%,
-    50%,
-    100% {
-        border: 5px double transparent;
-        border-image: linear-gradient(to right, white, red, white) 1;
-        padding: 0 1vw;
-    }
-
-    25%,
-    75% {
-        border: 5px double transparent;
-        border-image: linear-gradient(to right, red, white, red) 1;
-        padding: 0 1vw;
-    }
-}
-
 @keyframes blink {
+
     0%,
     100% {
         opacity: 1;
@@ -495,408 +603,82 @@ dialog {
 }
 
 @keyframes shoot {
-    from {
+    0% {
         opacity: 1;
         transform: translateX(0);
     }
 
-    to {
+    100% {
         opacity: 0;
         transform: translateX(-100vw);
+        /* Move fully across the viewport */
     }
+}
+
+.shooting-star {
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, white, rgba(255, 255, 255, 0));
+    animation: shoot 30s linear;
+}
+
+.hoverImg:hover {
+    padding: 0.5vh 0;
+    background-color: red;
+    margin: 1vh 0;
+
+}
+
+.run {
+    animation-name: run;
+    animation-duration: 1s;
+
 }
 
 @keyframes run {
-    from {
+    0% {
         transform: translateX(-100vw);
-    }
-
-    to {
-        transform: translateX(0);
     }
 }
 
-/* =========================================================
-   BACKGROUNDS
-   ========================================================= */
+/* BACKGROUNDS */
 
 .adminMsgBG {
-    background-image: url("./images/snapAdmin.jpg");
-    background-size: min(90%, 90rem);
+    background-image: url(./images/snapAdmin.jpg);
+    background-size: 90vw;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .msgBG {
-    background-image: url("./images/snapbackLogo.jpg");
+    background-image: url(./images/snapbackLogo.jpg);
     background-size: contain;
-    background-position: right center;
+    background-position: right;
     background-repeat: no-repeat;
 }
 
 .auditBg {
-    background-image: url("./images/scrolling.gif");
+    background-image: url(./images/scrolling.gif);
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
 .userBg {
-    background-image: url("./images/ai.gif");
+    background-image: url(./images/ai.gif);
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
 .qaBG {
-    background-image: url("./images/QA.webp");
-    background-size: min(80%, 80rem);
+    background-image: url(./images/QA.webp);
+    background-size: 80vw;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .websiteBg {
-    background-image: url("./images/matrix.gif");
+    background-image: url(./images/matrix.gif);
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-}
-
-/* =========================================================
-   LARGE / MEDIUM SCREENS
-   ========================================================= */
-
-@media (max-width: 1410px) {
-    .responsiveMeme {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .navbar {
-        height: auto;
-        align-items: stretch;
-    }
-
-    .menu-div {
-        width: min(65%, 48rem);
-        max-width: 100%;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .buttons-container {
-        width: 100%;
-    }
-
-    .imageCard {
-        width: 100%;
-        min-width: 0;
-        min-height: 20dvh;
-    }
-
-    .imgButton {
-        width: 100%;
-        min-width: 0;
-    }
-}
-
-/* =========================================================
-   TABLETS / MOBILE
-   ========================================================= */
-
-@media (max-width: 760px) {
-    .drawHover {
-        inset: 2dvh 2%;
-        width: 96%;
-        max-width: 96%;
-        max-height: 96dvh;
-    }
-
-    .responsiveThisDiv {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .responsiveContent {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 100svh;
-        display: flex !important;
-        flex-direction: column !important;
-        overflow-y: visible !important;
-        overflow-x: hidden !important;
-    }
-
-    .msgQuestionAdmin {
-        width: 100%;
-        min-width: 100%;
-        height: auto;
-        min-height: 50svh;
-    }
-
-    .msgQuestion {
-        width: 100% !important;
-        height: auto !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        order: 1;
-        padding: 0 !important;
-        background-image: none;
-    }
-
-    .msgQuestionImage {
-        width: 100% !important;
-        height: clamp(12.5rem, 40dvh, 18rem) !important;
-        background-image: url("./images/admin.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .msgQuestion h1 {
-        width: 100% !important;
-        height: auto !important;
-        display: block !important;
-        margin: 1rem 0 !important;
-        padding-inline: 1rem;
-        text-align: center !important;
-        overflow-wrap: anywhere;
-    }
-
-    .messageForm {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        order: 2;
-        padding: 0 1rem 1rem;
-        gap: 0.75rem;
-    }
-
-    .messageForm input,
-    .messageForm textarea,
-    .messageForm button {
-        width: 100% !important;
-        max-width: 40rem !important;
-    }
-
-    .faqResponsive {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 100svh;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        overflow-y: visible !important;
-        overflow-x: hidden !important;
-    }
-
-    .faqSidePanel {
-        width: 100% !important;
-        height: auto !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        order: 1;
-        padding: 1rem !important;
-    }
-
-    .faqMainPanel {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 60svh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        order: 2;
-        overflow-y: visible !important;
-    }
-
-    .faqSidePanel .question,
-    .faqSidePanel .snapQuest {
-        width: min(100%, 25rem) !important;
-        height: clamp(11rem, 32dvh, 13.75rem) !important;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .faqSidePanel h4 {
-        margin-top: 1rem;
-        padding-inline: 1rem;
-        text-align: center;
-        overflow-wrap: anywhere;
-    }
-
-    .faqMainPanel > h1 {
-        width: 100%;
-        padding-inline: 1rem;
-        font-size: clamp(1.3rem, 5vw, 1.5rem);
-        text-align: center;
-        overflow-wrap: anywhere;
-    }
-
-    .faqMainPanel .card {
-        width: min(95%, 40rem) !important;
-    }
-
-    .text-section {
-        width: 100%;
-        margin-top: 0.625rem;
-    }
-
-    .cardResponse {
-        width: 100%;
-        padding-inline: 0.75rem;
-    }
-
-    .cardResponding {
-        width: min(100%, 42rem) !important;
-        max-height: none !important;
-        flex-direction: column;
-        overflow: visible;
-    }
-
-    .cardRespondingTextImage {
-        width: 100%;
-        max-width: 100%;
-        max-height: 20rem;
-        object-fit: cover;
-    }
-
-    .cardRespondingText {
-        width: 100%;
-        height: auto !important;
-        padding: 1rem;
-    }
-
-    .cardRespondingTextDate {
-        font-size: 0.875rem;
-    }
-}
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 648px) {
-    .responsive-container {
-        width: 100%;
-        height: auto;
-        min-height: 55svh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem 0;
-    }
-
-    .Modo {
-        width: 90%;
-    }
-
-    .logo-div {
-        width: 100%;
-        min-width: 0;
-        min-height: 9.375rem;
-        flex-basis: auto;
-    }
-
-    .text-section {
-        width: 100%;
-    }
-
-    .cardResponding {
-        width: 100% !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .navbar {
-        padding: 0.5rem;
-    }
-
-    .navbar-header {
-        align-items: center;
-    }
-
-    .menu-div {
-        width: 100%;
-    }
-
-    .menu-toggle {
-        margin-right: 0;
-    }
-
-    .buttons-container[style*="display: flex"] {
-        display: flex !important;
-    }
-
-    .navbar-button {
-        width: 100%;
-    }
-
-    .loginModal {
-        width: 94%;
-        max-width: 94%;
-        min-height: 0;
-        max-height: 90dvh;
-    }
-}
-
-@media (max-width: 428px) {
-    #snapback {
-        border: none !important;
-        padding: 0 !important;
-        animation: none;
-    }
-
-    .msgQuestionImage {
-        height: 13rem !important;
-    }
-
-    .faqSidePanel .question,
-    .faqSidePanel .snapQuest {
-        height: 11rem !important;
-    }
-}
-
-/* =========================================================
-   LANDSCAPE PHONE SUPPORT
-   ========================================================= */
-
-@media (max-height: 500px) and (orientation: landscape) {
-    .loginModal {
-        top: 1rem;
-        transform: translateX(-50%);
-        max-height: calc(100dvh - 2rem);
-    }
-
-    .drawHover {
-        inset-block: 0.75rem;
-        max-height: calc(100dvh - 1.5rem);
-    }
-
-    .responsive-container {
-        height: auto;
-        min-height: 100svh;
-    }
-}
-
-/* =========================================================
-   ACCESSIBILITY / REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
