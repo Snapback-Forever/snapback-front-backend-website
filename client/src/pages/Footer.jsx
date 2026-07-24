@@ -30,7 +30,7 @@ const Footer = () => {
     window.open('https://your-project.vercel.app/', '_blank', 'noopener,noreferrer');
   };
 
-  const websiteUrl = encodeURIComponent('https://snapback-front-backend-website.vercel.app/');
+  const websiteUrl = encodeURIComponent('https://snapbackforever.com/');
   const message = encodeURIComponent('SNAPBACK-Forever Website Design Official Website') + websiteUrl;
 
   // WhatsApp

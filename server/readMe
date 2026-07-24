@@ -4,7 +4,7 @@ foreverSnapBack@mail.com
 
 'https://your-project.vercel.app/' --- all the links marked
 
-change the    'https://snapback-front-backend-website.vercel.app/' in server index.js and .env file ALLOWED_ORIGINS=ALLOWED_ORIGINS
+change the    'https://snapbackforever.com/' in server index.js and .env file ALLOWED_ORIGINS=ALLOWED_ORIGINS
 
 change MONGO_URI
 

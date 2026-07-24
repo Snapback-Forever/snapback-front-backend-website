@@ -15,7 +15,7 @@ const PORT = config.PORT || 8080;
    ALLOWED ORIGINS
 ------------------------------*/
 const allowedOrigins = [
- "https://snapback-front-backend-website.vercel.app"
+ "https://snapbackforever.com"
 ];
 
 /* -----------------------------
